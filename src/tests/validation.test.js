@@ -50,5 +50,12 @@ describe('Validation', () => {
 	test("it  returns true for valid product", () => {
 		expect(isProduct(exampleProduct)).toBe(true)
 	})
+	test("it returns false for invalid product", () => {
+		const invalidProduct = {
+			id: 1001,
+			name: "Karlsson"
+		}
+		expect(isProduct(invalidProduct)).toBe(false)
+	})
 
 })
