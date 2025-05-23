@@ -17,7 +17,17 @@ function isCartItem(object) {
 	return true;
 }
 
-function isProduct(object) {}
+function isProduct(object) {
+	if(
+		typeof object !== "object" || object === null ||
+		typeof object.id !== "number" ||
+		typeof object.name !== "string" ||
+		typeof object.price !== "number"
+	) {
+		return false;
+	}
+	return true;
+}
 
 
 export { isCartItem, isProduct }
