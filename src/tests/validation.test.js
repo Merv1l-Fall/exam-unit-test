@@ -46,4 +46,5 @@ describe('Validation', () => {
 	test('it returns true for a valid cart object', () => {
 		expect(isCartItem(exampleCartObject)).toBe(true)
 	})
+	
 })
