@@ -17,7 +17,7 @@ function isCartItem(object) {
 	return true;
 }
 
-function isProduct(maybeProduct) {}
+function isProduct(object) {}
 
 
 export { isCartItem, isProduct }

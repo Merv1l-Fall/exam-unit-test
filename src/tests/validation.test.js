@@ -47,4 +47,8 @@ describe('Validation', () => {
 		expect(isCartItem(exampleCartObject)).toBe(true)
 	})
 
+	test("it  returns true for valid product", () => {
+		expect(isProduct(exampleProduct)).toBe(true)
+	})
+
 })
