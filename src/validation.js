@@ -10,7 +10,7 @@ function isCartItem(object) {
 		typeof object.id !== "number" ||
 		typeof object.amount !== "number" ||
 		typeof object.item !== "object" ||
-		typeof obj.item !== "object" || obj.item === null
+		typeof object.item !== "object" || object.item === null
 	) {
 		return false;
 	}
