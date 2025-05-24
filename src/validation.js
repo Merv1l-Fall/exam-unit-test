@@ -9,8 +9,8 @@ function isCartItem(object) {
 	if(
 		typeof object.id !== "number" ||
 		typeof object.amount !== "number" ||
-		typeof object.item !== "object" ||
-		typeof object.item !== "object" || object.item === null
+		typeof object.item !== "object" || object.item === null ||
+		!isProduct(object.item)
 	) {
 		return false;
 	}
@@ -22,7 +22,7 @@ function isProduct(object) {
 		typeof object !== "object" || object === null ||
 		typeof object.id !== "number" ||
 		typeof object.name !== "string" ||
-		typeof object.price !== "number"
+		typeof object.price !== "number" || object.price <= 0
 	) {
 		return false;
 	}
