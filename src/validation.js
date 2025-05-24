@@ -13,17 +13,16 @@ const productSchema = Joi.object({
 	price: Joi.number().positive().required()
 });
 
+const cartItemSchema = Joi.object({
+	id: Joi.number().integer().min(0).required(),
+	amount: Joi.number().integer().min(1).required(),
+	item: productSchema.required()
+});
+
 
 function isCartItem(object) {
-	if(
-		typeof object.id !== "number" ||
-		typeof object.amount !== "number" ||
-		typeof object.item !== "object" || object.item === null ||
-		!isProduct(object.item)
-	) {
-		return false;
-	}
-	return true;
+	const { error } = cartItemSchema.validate(object);
+	return !error;
 }
 
 function isProduct(object) {
