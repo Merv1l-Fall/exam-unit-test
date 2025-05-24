@@ -10,7 +10,7 @@ import Joi from "joi";
 const productSchema = Joi.object({
 	id: Joi.number().integer().min(0).strict().required(),
 	name: Joi.string().min(1).required(),
-	price: Joi.number().positive().required()
+	price: Joi.number().positive().min(1).strict().required()
 });
 
 const cartItemSchema = Joi.object({
