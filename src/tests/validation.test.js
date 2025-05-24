@@ -39,31 +39,46 @@ describe('Validation', () => {
 		})
 
 		test("returns false for invalid cart item with negative amount", () => {
-			const invalidCartItem = {...exampleCartObject, amount: -1 }
+			const invalidCartItem = { ...exampleCartObject, amount: -1 }
 			expect(isCartItem(invalidCartItem)).toBe(false)
 		})
 
 		test("returns false for invalid cart item with amount 0", () => {
-			const invalidCartItem = {...exampleCartObject, amount: 0 }
+			const invalidCartItem = { ...exampleCartObject, amount: 0 }
 			expect(isCartItem(invalidCartItem)).toBe(false)
 		})
 
 		test("returns false for invalid cart item with amount as a string", () => {
-			const invalidCartItem = {...exampleCartObject, amount: "one" }
+			const invalidCartItem = { ...exampleCartObject, amount: "one" }
 			expect(isCartItem(invalidCartItem)).toBe(false)
 		})
 
 		test("returns false for invalid cart item with invalid id", () => {
-			const invalidCartItem = {...exampleCartObject }
+			const invalidCartItem = { ...exampleCartObject }
 			delete invalidCartItem.id
 			expect(isCartItem(invalidCartItem)).toBe(false)
 		})
 
 		test("returns false for invalid cart item with invalid item", () => {
-			const invalidCartItem = {...exampleCartObject }
-			invalidCartItem.item = "David" 
+			const invalidCartItem = { ...exampleCartObject }
+			invalidCartItem.item = "David"
 			expect(isCartItem(invalidCartItem)).toBe(false)
 		})
-		
+
+		test("returns false for cart item with id as string", () => {
+			const invalidCartItem = { ...exampleCartObject, id: "2001" };
+			expect(isCartItem(invalidCartItem)).toBe(false);
+		});
+
+		test("returns false for cart item with item as null", () => {
+			const invalidCartItem = { ...exampleCartObject, item: null };
+			expect(isCartItem(invalidCartItem)).toBe(false);
+		});
+
+		test("returns false for cart item with item missing product fields", () => {
+			const invalidProduct = { id: 1001, name: "Product" }; // Saknar price
+			const invalidCartItem = { ...exampleCartObject, item: invalidProduct };
+			expect(isCartItem(invalidCartItem)).toBe(false);
+		});
 	})
 })
