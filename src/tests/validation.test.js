@@ -49,7 +49,7 @@ describe('Validation', () => {
 		})
 
 		test("returns false for invalid cart item with amount as a string", () => {
-			const invalidCartItem = {...exampleCartObject }
+			const invalidCartItem = {...exampleCartObject, amount: "one" }
 			expect(isCartItem(invalidCartItem)).toBe(false)
 		})
 
