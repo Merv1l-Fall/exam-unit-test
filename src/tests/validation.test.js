@@ -37,19 +37,23 @@ describe('Validation', () => {
 		test("returns true for a valid cart item", () => {
 			expect(isCartItem(exampleCartObject)).toBe(true)
 		})
-		test("returns false for invalid cart item with invalid amount", () => {
+
+		test("returns false for invalid cart item with negative amount", () => {
 			const invalidCartItem = {...exampleCartObject, amount: -1 }
 			expect(isCartItem(invalidCartItem)).toBe(false)
 		})
+
 		test("returns false for invalid cart item with invalid id", () => {
 			const invalidCartItem = {...exampleCartObject }
 			delete invalidCartItem.id
 			expect(isCartItem(invalidCartItem)).toBe(false)
 		})
+
 		test("returns false for invalid cart item with invalid item", () => {
 			const invalidCartItem = {...exampleCartObject }
 			invalidCartItem.item = "David" 
 			expect(isCartItem(invalidCartItem)).toBe(false)
 		})
+		
 	})
 })
