@@ -20,7 +20,7 @@ describe('Validation', () => {
 	// 3. it returns true for a valid product
 	// 4. it returns false for invalid cart objects
 
-
+describe("isProduct", () => {
 	test("it  returns true for valid product", () => {
 		expect(isProduct(exampleProduct)).toBe(true)
 	})
@@ -31,6 +31,7 @@ describe('Validation', () => {
 		}
 		expect(isProduct(invalidProduct)).toBe(false)
 	})
+})
 
 
 	describe("isCartItem", () => {
@@ -60,8 +61,7 @@ describe('Validation', () => {
 		})
 
 		test("returns false for invalid cart item with invalid item", () => {
-			const invalidCartItem = { ...exampleCartObject }
-			invalidCartItem.item = "David"
+			const invalidCartItem = { ...exampleCartObject, item: "David" }
 			expect(isCartItem(invalidCartItem)).toBe(false)
 		})
 
