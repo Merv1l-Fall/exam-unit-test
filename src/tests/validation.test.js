@@ -21,7 +21,7 @@ describe('Validation', () => {
 		})
 
 		test("it returns false for invalid product with negative price", () => {
-			const invalidProduct = { ...exampleProduct, price: 2 } // Invalid price as negative number
+			const invalidProduct = { ...exampleProduct, price: -2 } // Invalid price as negative number
 			expect(isProduct(invalidProduct)).toBe(false)
 		})
 
