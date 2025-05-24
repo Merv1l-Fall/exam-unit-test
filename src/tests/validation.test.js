@@ -43,7 +43,7 @@ describe('Validation', () => {
 		})
 		test("returns false for invalid cart item with invalid id", () => {
 			const invalidCartItem = {...exampleCartObject }
-			// delete invalidCartItem.id
+			delete invalidCartItem.id
 			expect(isCartItem(invalidCartItem)).toBe(false)
 		})
 	})
